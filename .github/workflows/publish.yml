@@ -32,6 +32,7 @@ jobs:
           [ -s "$apk" ] || { echo "no $apk"; exit 1; }
           sum=$(sha256sum "$apk" | cut -d' ' -f1)
           jq -r .notes release.json > notes.md
+          summary=$(jq -r .summary release.json)   # (release.json goes with the branch)
           printf '\n\nSHA-256 of `%s`: `%s`\n' "$apk" "$sum" >> notes.md
 
           gh release create "v$v" "$apk" --repo "$GITHUB_REPOSITORY" \
@@ -47,7 +48,7 @@ jobs:
 
           git fetch -q origin main
           git checkout -q -B main origin/main
-          jq -n --arg v "$v" --arg n "$(jq -r .summary release.json)" --arg a "$url" \
+          jq -n --arg v "$v" --arg n "$summary" --arg a "$url" \
                 --arg p "https://github.com/$GITHUB_REPOSITORY/releases/latest" --arg s "$sum" \
                 '{version: $v, notes: $n, android: $a, page: $p, sha256: $s}' > latest.json
           git config user.name "github-actions[bot]"
