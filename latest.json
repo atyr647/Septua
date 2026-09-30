@@ -1,9 +1,9 @@
 {
-  "version": "1.5.0",
-  "notes": "Photos and files in chats. The \"+\" by the message box attaches photos (from your gallery) and files; on a computer, drop them on the window. The team sees pictures when its model does (the model search says which do),...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.0/Septua-1.5.0.apk",
+  "version": "1.5.1",
+  "notes": "You can see a reply coming. While a member answers, their bubble says what they're doing and for how long (\"reading Adacraft.txt · 0:12\", \"thinking · 0:40\"), then shows the reply as it's written. No more empty replies....",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.1/Septua-1.5.1.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "68fc9a064dadd0fa877fbf0402e2c7ed0383356943636388e71abe83a7330d60",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.0/Septua-1.5.0-linux-x86_64.tar.gz",
-  "linux_sha256": "99bcde26db4ef7f1cc37da54c1a9a22c419e6c44a7a07de7bd2238da13a5672d"
+  "sha256": "fb7a0944b2d72e977bd5f058d87a0838f648d9f513b038b051726a13eaab58f3",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.1/Septua-1.5.1-linux-x86_64.tar.gz",
+  "linux_sha256": "545c1c2763df3726c9e7c640b4a39e12b5ac11352552c0dd1c5201225ed09ecd"
 }
