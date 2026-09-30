@@ -1,7 +1,7 @@
 {
-  "version": "1.3.1",
-  "notes": "Updates now come from Septua's public releases on GitHub: the app tells you when there's a newer version and offers it in Settings > About.",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.3.1/Septua-1.3.1.apk",
+  "version": "1.4.0",
+  "notes": "Any AI provider. Connect SiliconFlow, Baseten, OpenRouter, OpenAI, Anthropic, Google, Groq, DeepSeek and about 200 more (the catalog opencode uses, models.dev), or any OpenAI-compatible service by its address (your own...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.4.0/Septua-1.4.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "f2f68b73b73877e80d22243569a694def75d0fd6cd839a91a0955cbdf852be89"
+  "sha256": "1d4010d8668c6c78e2cd2d1c75826861c2b1273ee8209b494a2d470a1bb3a2bb"
 }
