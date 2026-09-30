@@ -1,9 +1,9 @@
 {
-  "version": "1.9.0",
-  "notes": "Tests run in a sandbox. A project's tests can no longer see your keys, your files or Septua's own folder, have no internet, can only write in their own work folder, and leave nothing running behind them. If the sandbox...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.9.0/Septua-1.9.0.apk",
+  "version": "1.10.0",
+  "notes": "Another device can't change what runs on your computer. A phone can still chat, approve and ship, but changing the checks, the test settings, the CI-file setting or starting a fresh workspace is done on the computer...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.10.0/Septua-1.10.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "c0442e5638d01f9d6b3441a23b958f5171b315d4c635d9bb461e538ed1773b15",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.9.0/Septua-1.9.0-linux-x86_64.tar.gz",
-  "linux_sha256": "33cc14956c48c37741266f6e8c47f66441bc0adb46c4d68ffdc8a536e60bc70a"
+  "sha256": "b82de93c0ea67a5a52e8dc1087cb6bd920dc25a48a1ceae587679d2b08c6a40f",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.10.0/Septua-1.10.0-linux-x86_64.tar.gz",
+  "linux_sha256": "b20634a0855006c529fd79e4424054676db88cd613a3b99ea67213f68f82d1a7"
 }
