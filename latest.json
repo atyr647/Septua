@@ -1,9 +1,9 @@
 {
-  "version": "1.6.0",
-  "notes": "Big files, even for small models. A file too big for a member's model to take in at once is given to it as an outline (its sections, numbered, with their first words). The member reads the sections it needs by itself, a...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.6.0/Septua-1.6.0.apk",
+  "version": "1.7.0",
+  "notes": "Test results are honest. Work is only called \"tested\" when tests really ran and passed. A project with no test command (or, on a phone, a repository with no CI) is now \"Ready to ship, untested\", and its pull request...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.7.0/Septua-1.7.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "395e6b59f92b0dffcf37a6729e56d7826cdeeb4dea930b449eb6b74ec47b99f4",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.6.0/Septua-1.6.0-linux-x86_64.tar.gz",
-  "linux_sha256": "c6e1042a08f01aaaf25b186b51560b92b41ff0f841a9ce7f8d0977dac816ef81"
+  "sha256": "03b4448bdd9219a427db4a2845c81b88289e1464dc804f549c0931811da0d32f",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.7.0/Septua-1.7.0-linux-x86_64.tar.gz",
+  "linux_sha256": "d0cd9333790ee1b34a42833af567e06192ca8c022e3b9d1db2dd3fd1df599309"
 }
