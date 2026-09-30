@@ -1,7 +1,7 @@
 {
-  "version": "1.4.0",
-  "notes": "Any AI provider. Connect SiliconFlow, Baseten, OpenRouter, OpenAI, Anthropic, Google, Groq, DeepSeek and about 200 more (the catalog opencode uses, models.dev), or any OpenAI-compatible service by its address (your own...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.4.0/Septua-1.4.0.apk",
+  "version": "1.4.1",
+  "notes": "Find a model from a member's settings: \"Find another model for Theo\" opens the model search, and the model you pick becomes theirs. Prices you can't change aren't fields any more. A model's published price is shown; a...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.4.1/Septua-1.4.1.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "1d4010d8668c6c78e2cd2d1c75826861c2b1273ee8209b494a2d470a1bb3a2bb"
+  "sha256": "c3affe3826016835e1a3e88bb3079961d1fdc6651c0a78b848a68ef072928fae"
 }
