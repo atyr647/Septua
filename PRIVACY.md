@@ -1,8 +1,8 @@
 # Septua privacy policy
 
-*Last updated: (date of publication)*
+*Last updated: 2026-09-30*
 
-Septua ("the app") is made by (your name or company) ("we"). This policy
+Septua ("the app") is made by atyr647 ("we"). This policy
 says what the app does with your information. In short: **we don't
 collect it.** Septua has no servers of its own that receive your code,
 chats or keys; the app talks directly to the services you connect.
@@ -77,4 +77,5 @@ date.
 
 ## Contact
 
-(your contact email)
+Questions: open an issue at <https://github.com/atyr647/Septua>, or, for
+anything private, use **Security**, then **Report a vulnerability**, on the same page.
