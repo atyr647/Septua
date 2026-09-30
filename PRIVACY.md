@@ -11,10 +11,10 @@ chats or keys; the app talks directly to the services you connect.
 
 - Your projects, chats, roadmaps and settings, in the app's private
   storage.
-- Your SiliconFlow API key and your GitHub sign-in. On Android they are
-  encrypted with a key Android keeps for the app alone; on a computer
-  they are kept in its keyring. They are never sent to us or to anyone
-  other than the service they belong to.
+- The API key for each AI provider you connect, and your GitHub sign-in.
+  On Android they are encrypted with a key Android keeps for the app
+  alone; on a computer they are kept in its keyring. Each key is only
+  ever sent to the service it belongs to, never to us or anyone else.
 - Crash reports, which stay on the device. If you choose to share one,
   you decide where it goes.
 
@@ -22,10 +22,12 @@ chats or keys; the app talks directly to the services you connect.
 
 The app sends data only to services you connect, only to do what you ask:
 
-- **SiliconFlow** (siliconflow.com), your AI provider: the messages you
-  write to the team and the context the team needs (parts of your code,
-  the task at hand), so the AI models can answer. SiliconFlow bills your
-  account. Its privacy policy applies to what it receives.
+- **The AI provider you choose** (for example SiliconFlow, Baseten,
+  OpenRouter, OpenAI or Anthropic): the messages you write to the team
+  and the context the team needs (parts of your code, the task at hand),
+  so the AI models can answer. They go only to the provider of the model
+  that answers, and that provider bills your account. Its privacy policy
+  applies to what it receives.
 - **GitHub** (github.com): the app reads and changes the repositories you
   work on (branches, commits, pull requests, CI results), and keeps your
   workspace (projects, chats, roadmaps) in a private repository in your
@@ -39,8 +41,13 @@ The app sends data only to services you connect, only to do what you ask:
   store ask Septua's public releases page on GitHub which version is the
   latest (a plain request for one small file; GitHub sees your IP
   address, as for any web page). No data about you or your use is sent.
+- **Model catalog (models.dev)**: the app downloads the public catalog of
+  AI models and their prices from models.dev, at most once a day (a plain
+  request for one file; its host sees your IP address, as for any web
+  page). Nothing about you is sent.
 
-All of it travels encrypted (HTTPS).
+All of it travels encrypted (HTTPS), except to a provider you add yourself by an
+address starting with http:// (a server on your own network, say).
 
 ## What we don't do
 
@@ -53,7 +60,7 @@ We can't see your code, chats or keys.
   device.
 - Your synced workspace is the private repository `septua-sync` (or
   `devteam-sync`) in your GitHub account: delete it there to remove it.
-- Disconnect GitHub or SiliconFlow in Settings, or revoke Septua's access
+- Disconnect GitHub or remove an AI provider in Settings, or revoke Septua's access
   in your GitHub settings (Applications).
 
 ## Children
