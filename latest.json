@@ -1,7 +1,9 @@
 {
-  "version": "1.4.1",
-  "notes": "Find a model from a member's settings: \"Find another model for Theo\" opens the model search, and the model you pick becomes theirs. Prices you can't change aren't fields any more. A model's published price is shown; a...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.4.1/Septua-1.4.1.apk",
+  "version": "1.5.0",
+  "notes": "Photos and files in chats. The \"+\" by the message box attaches photos (from your gallery) and files; on a computer, drop them on the window. The team sees pictures when its model does (the model search says which do),...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.0/Septua-1.5.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "c3affe3826016835e1a3e88bb3079961d1fdc6651c0a78b848a68ef072928fae"
+  "sha256": "68fc9a064dadd0fa877fbf0402e2c7ed0383356943636388e71abe83a7330d60",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.0/Septua-1.5.0-linux-x86_64.tar.gz",
+  "linux_sha256": "99bcde26db4ef7f1cc37da54c1a9a22c419e6c44a7a07de7bd2238da13a5672d"
 }
