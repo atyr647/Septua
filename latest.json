@@ -1,9 +1,9 @@
 {
-  "version": "1.8.0",
-  "notes": "Any size of codebase. The builder now gets a map of the repository that fits however big it is, and can look around before changing anything: list a folder, search the code, read any part of any file. Nothing is cut off...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.8.0/Septua-1.8.0.apk",
+  "version": "1.9.0",
+  "notes": "Tests run in a sandbox. A project's tests can no longer see your keys, your files or Septua's own folder, have no internet, can only write in their own work folder, and leave nothing running behind them. If the sandbox...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.9.0/Septua-1.9.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "04939bf489a3959b783c9e556d9daaefaa0a0b366e8559dfe036420f0785cdfa",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.8.0/Septua-1.8.0-linux-x86_64.tar.gz",
-  "linux_sha256": "0a20054252ea757c26dad9cdcccd21e0256d8462fe5872fa466c8e9a74c6e904"
+  "sha256": "c0442e5638d01f9d6b3441a23b958f5171b315d4c635d9bb461e538ed1773b15",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.9.0/Septua-1.9.0-linux-x86_64.tar.gz",
+  "linux_sha256": "33cc14956c48c37741266f6e8c47f66441bc0adb46c4d68ffdc8a536e60bc70a"
 }
