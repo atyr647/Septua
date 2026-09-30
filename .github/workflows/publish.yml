@@ -1,7 +1,7 @@
 # Publishes a Septua release pushed to an upload/v<version> branch (by
 # tools/publish-release.sh in Septua's source): a GitHub Release with the
-# APK, then latest.json (what the app reads), then the branch is deleted so
-# APKs don't stay in this repository's history.
+# APK and the Linux download, then latest.json (what the app reads), then
+# the branch is deleted so downloads don't stay in this repository's history.
 name: Publish a release
 
 on:
@@ -29,28 +29,38 @@ jobs:
             echo "release.json says $v, but the branch is $GITHUB_REF_NAME"; exit 1
           fi
           apk="Septua-$v.apk"
+          linux="Septua-$v-linux-x86_64.tar.gz"
           [ -s "$apk" ] || { echo "no $apk"; exit 1; }
+          [ -s "$linux" ] || { echo "no $linux"; exit 1; }
           sum=$(sha256sum "$apk" | cut -d' ' -f1)
+          linux_sum=$(sha256sum "$linux" | cut -d' ' -f1)
           jq -r .notes release.json > notes.md
           summary=$(jq -r .summary release.json)   # (release.json goes with the branch)
           printf '\n\nSHA-256 of `%s`: `%s`\n' "$apk" "$sum" >> notes.md
+          printf '\nSHA-256 of `%s`: `%s`\n' "$linux" "$linux_sum" >> notes.md
 
-          gh release create "v$v" "$apk" --repo "$GITHUB_REPOSITORY" \
+          gh release create "v$v" "$apk" "$linux" --repo "$GITHUB_REPOSITORY" \
             --title "Septua $v" --notes-file notes.md --target main --latest
 
-          # The download must work before the app is told about it.
-          url="https://github.com/$GITHUB_REPOSITORY/releases/download/v$v/$apk"
-          for i in 1 2 3 4 5 6; do
-            curl -sfIL -o /dev/null "$url" && break
-            [ "$i" = 6 ] && { echo "the download doesn't answer: $url"; exit 1; }
-            sleep 10
+          # The downloads must work before the app is told about them.
+          base="https://github.com/$GITHUB_REPOSITORY/releases/download/v$v"
+          url="$base/$apk"
+          linux_url="$base/$linux"
+          for u in "$url" "$linux_url"; do
+            for i in 1 2 3 4 5 6; do
+              curl -sfIL -o /dev/null "$u" && break
+              [ "$i" = 6 ] && { echo "the download doesn't answer: $u"; exit 1; }
+              sleep 10
+            done
           done
 
           git fetch -q origin main
           git checkout -q -B main origin/main
           jq -n --arg v "$v" --arg n "$summary" --arg a "$url" \
                 --arg p "https://github.com/$GITHUB_REPOSITORY/releases/latest" --arg s "$sum" \
-                '{version: $v, notes: $n, android: $a, page: $p, sha256: $s}' > latest.json
+                --arg l "$linux_url" --arg ls "$linux_sum" \
+                '{version: $v, notes: $n, android: $a, page: $p, sha256: $s,
+                  linux: $l, linux_sha256: $ls}' > latest.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add latest.json
