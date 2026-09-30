@@ -1,9 +1,9 @@
 {
-  "version": "1.5.1",
-  "notes": "You can see a reply coming. While a member answers, their bubble says what they're doing and for how long (\"reading Adacraft.txt · 0:12\", \"thinking · 0:40\"), then shows the reply as it's written. No more empty replies....",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.1/Septua-1.5.1.apk",
+  "version": "1.5.2",
+  "notes": "Fixed \"HTTP 400: The parameter is invalid\" on replies (most often with a big attached file): the app asked the model for a longer answer than it gives. It now asks for no more than the model's own limit. Updates are...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.2/Septua-1.5.2.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "fb7a0944b2d72e977bd5f058d87a0838f648d9f513b038b051726a13eaab58f3",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.1/Septua-1.5.1-linux-x86_64.tar.gz",
-  "linux_sha256": "545c1c2763df3726c9e7c640b4a39e12b5ac11352552c0dd1c5201225ed09ecd"
+  "sha256": "db954efa49860d56cffbf9e371eba61bd41741c73fd3e09fcd05ffb45a5f2380",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.2/Septua-1.5.2-linux-x86_64.tar.gz",
+  "linux_sha256": "940b6b0493e18146373aa434d86ea01060bad4634f427764ca38fefd022f0b41"
 }
