@@ -25,13 +25,15 @@ The app sends data only to services you connect, only to do what you ask:
 - **The AI provider you choose** (for example SiliconFlow, Baseten,
   OpenRouter, OpenAI or Anthropic): the messages you write to the team
   and the context the team needs (parts of your code, the task at hand),
-  so the AI models can answer. They go only to the provider of the model
+  so the AI models can answer, and the photos and files you attach to a
+  chat (a picture only to a model that can see pictures). They go only to the provider of the model
   that answers, and that provider bills your account. Its privacy policy
   applies to what it receives.
 - **GitHub** (github.com): the app reads and changes the repositories you
   work on (branches, commits, pull requests, CI results), and keeps your
-  workspace (projects, chats, roadmaps) in a private repository in your
-  own account so your devices share it. GitHub's privacy statement
+  workspace (projects, chats, roadmaps, and the photos and files you
+  attach to chats) in a private repository in your own account so your
+  devices share it. GitHub's privacy statement
   applies.
 - **Notifications**: when the app is closed and another of your devices
   runs the team, the phone app checks your private sync repository on
