@@ -1,9 +1,9 @@
 {
-  "version": "1.5.2",
-  "notes": "Fixed \"HTTP 400: The parameter is invalid\" on replies (most often with a big attached file): the app asked the model for a longer answer than it gives. It now asks for no more than the model's own limit. Updates are...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.5.2/Septua-1.5.2.apk",
+  "version": "1.6.0",
+  "notes": "Big files, even for small models. A file too big for a member's model to take in at once is given to it as an outline (its sections, numbered, with their first words). The member reads the sections it needs by itself, a...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.6.0/Septua-1.6.0.apk",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "db954efa49860d56cffbf9e371eba61bd41741c73fd3e09fcd05ffb45a5f2380",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.5.2/Septua-1.5.2-linux-x86_64.tar.gz",
-  "linux_sha256": "940b6b0493e18146373aa434d86ea01060bad4634f427764ca38fefd022f0b41"
+  "sha256": "395e6b59f92b0dffcf37a6729e56d7826cdeeb4dea930b449eb6b74ec47b99f4",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.6.0/Septua-1.6.0-linux-x86_64.tar.gz",
+  "linux_sha256": "c6e1042a08f01aaaf25b186b51560b92b41ff0f841a9ce7f8d0977dac816ef81"
 }
