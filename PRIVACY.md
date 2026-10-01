@@ -44,9 +44,14 @@ The app sends data only to services you connect, only to do what you ask:
   latest (a plain request for one small file; GitHub sees your IP
   address, as for any web page). No data about you or your use is sent.
 - **Model catalog (models.dev)**: the app downloads the public catalog of
-  AI models and their prices from models.dev, at most once a day (a plain
-  request for one file; its host sees your IP address, as for any web
-  page). Nothing about you is sent.
+  AI models and their prices from models.dev, every six hours at most (a plain
+  request for one file, and a short "has it changed?" check; its host sees
+  your IP address, as for any web page). Nothing about you is sent. Each AI
+  provider you connect is also asked for its list of models, as it is to
+  work with it; your key goes only to that provider. For DeepInfra the app also
+  reads its public model pages (retirement dates and answer limits) and, for a
+  server of your own on your network (LM Studio, for example), asks that
+  server for its models; no key and nothing about you goes to any of them.
 
 All of it travels encrypted (HTTPS), except to a provider you add yourself by an
 address starting with http:// (a server on your own network, say).

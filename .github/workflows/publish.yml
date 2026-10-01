@@ -54,16 +54,20 @@ jobs:
             done
           done
 
+          # The feed was made and signed by whoever published (apps believe a
+          # feed only with a signature that checks); it must describe exactly
+          # the files this release has.
+          [ -s latest.json ] && [ -s latest.json.sig ] || { echo "the upload has no signed latest.json"; exit 1; }
+          jq -e --arg v "$v" --arg s "$sum" --arg l "$linux_sum" \
+            '.version == $v and .sha256 == $s and .linux_sha256 == $l' latest.json >/dev/null \
+            || { echo "latest.json doesn't match the files"; exit 1; }
+          cp latest.json latest.json.sig "$RUNNER_TEMP/"
           git fetch -q origin main
           git checkout -q -B main origin/main
-          jq -n --arg v "$v" --arg n "$summary" --arg a "$url" \
-                --arg p "https://github.com/$GITHUB_REPOSITORY/releases/latest" --arg s "$sum" \
-                --arg l "$linux_url" --arg ls "$linux_sum" \
-                '{version: $v, notes: $n, android: $a, page: $p, sha256: $s,
-                  linux: $l, linux_sha256: $ls}' > latest.json
+          cp "$RUNNER_TEMP/latest.json" "$RUNNER_TEMP/latest.json.sig" .
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.json
+          git add latest.json latest.json.sig
           git commit -qm "Septua $v"
           git push -q origin main
           git push -q origin --delete "$GITHUB_REF_NAME"
