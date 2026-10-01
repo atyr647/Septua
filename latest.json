@@ -1,9 +1,9 @@
 {
-  "version": "1.10.0",
-  "notes": "Another device can't change what runs on your computer. A phone can still chat, approve and ship, but changing the checks, the test settings, the CI-file setting or starting a fresh workspace is done on the computer...",
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.10.0/Septua-1.10.0.apk",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.11.0/Septua-1.11.0.apk",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.11.0/Septua-1.11.0-linux-x86_64.tar.gz",
+  "linux_sha256": "b3c41231e1da3433e20f5c0063b379335aabdce6bc36d7662c68e24950f5dac3",
+  "notes": "A practice team inside the app. On a fresh Home, \"Just looking? Try a practice team\": a workspace of its own with simulated replies, nothing leaves the device and nothing is spent; \"Leave practice\" brings your real...",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "b82de93c0ea67a5a52e8dc1087cb6bd920dc25a48a1ceae587679d2b08c6a40f",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.10.0/Septua-1.10.0-linux-x86_64.tar.gz",
-  "linux_sha256": "b20634a0855006c529fd79e4424054676db88cd613a3b99ea67213f68f82d1a7"
+  "sha256": "cd2430054b742c49a1b6300f93d52357673a1ebee186f2a872f05efa8006dfcf",
+  "version": "1.11.0"
 }
