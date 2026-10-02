@@ -1,9 +1,9 @@
 {
-  "android": "https://github.com/atyr647/Septua/releases/download/v1.11.0/Septua-1.11.0.apk",
-  "linux": "https://github.com/atyr647/Septua/releases/download/v1.11.0/Septua-1.11.0-linux-x86_64.tar.gz",
-  "linux_sha256": "b3c41231e1da3433e20f5c0063b379335aabdce6bc36d7662c68e24950f5dac3",
-  "notes": "A practice team inside the app. On a fresh Home, \"Just looking? Try a practice team\": a workspace of its own with simulated replies, nothing leaves the device and nothing is spent; \"Leave practice\" brings your real...",
+  "android": "https://github.com/atyr647/Septua/releases/download/v1.12.0/Septua-1.12.0.apk",
+  "linux": "https://github.com/atyr647/Septua/releases/download/v1.12.0/Septua-1.12.0-linux-x86_64.tar.gz",
+  "linux_sha256": "9fcbbc2b5b946c01427166a207b055b2226e3b1013ccd5fbb4322c70ca4326b4",
+  "notes": "Builds and tests on GitHub's machines. Settings, Running projects' tests: each check can run on a fresh GitHub machine instead of here. It may install anything and use the internet, and the pictures and files it saves...",
   "page": "https://github.com/atyr647/Septua/releases/latest",
-  "sha256": "cd2430054b742c49a1b6300f93d52357673a1ebee186f2a872f05efa8006dfcf",
-  "version": "1.11.0"
+  "sha256": "765ef650c87582545106751fd5b4e3c41eb320aa833e90767562237b21b50fb8",
+  "version": "1.12.0"
 }
