@@ -35,6 +35,21 @@ have; on Ubuntu or Debian:
 `sudo apt install libsdl2-2.0-0 libcurl4 libsqlite3-0 git`. Built on
 Ubuntu 24.04.
 
+### On a Mac (Apple silicon: M1 or later, macOS 13 or later)
+
+Download `Septua-<version>-macos-arm64.tar.gz` from the same page. Open it
+and drag **Septua** into your Applications folder.
+
+Septua isn't signed with an Apple developer account, so the first time,
+macOS won't open it ("Apple could not verify..."). Choose **Done**, then
+open **System Settings > Privacy & Security**, scroll down to the message
+about Septua and choose **Open Anyway**, then **Open Anyway** again. That's
+needed once; after that Septua opens normally, updates included. (Or, in
+Terminal: `xattr -dr com.apple.quarantine /Applications/Septua.app`.)
+
+Builds, tests and commands use the tools you have installed on the Mac,
+such as Apple's command-line tools (`xcode-select --install`) for git.
+
 On a computer, newer versions install from inside the app: Settings >
 About > **Update to ...**, then **Restart now**. The app checks the
 download's SHA-256 against this page's before using it.

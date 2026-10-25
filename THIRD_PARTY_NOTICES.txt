@@ -8,6 +8,8 @@ Part                              Licence                   Where
 LVGL (graphics library)           MIT                       phone and computer
   with lodepng, TJpgDec (tjpgd),  zlib, TJpgDec licence,
   stb_truetype (TinyTTF)          MIT
+QR Code generator (Nayuki, the    MIT                       phone and computer
+  copy in LVGL)
 lvgl-ada (Ada binding to LVGL)    MIT                       phone and computer
 SDL 3 and sdl2-compat             zlib                      phone (the computer
                                                             uses the system's)
@@ -21,6 +23,16 @@ Mozilla's CA certificate list,    MPL 2.0 (unmodified)      phone
 Inter, Space Grotesk,             SIL Open Font Licence 1.1 phone and computer
   JetBrains Mono, Noto Emoji
   (fonts)
+Reference documentation the team  each its own: see below   phone and computer
+  reads (reference/):
+  Ada 2022 Reference Manual       its copyright notice
+                                  (copy as is, notice kept)
+  SPARK User's Guide and          GNU FDL
+  Reference Manual (AdaCore)
+  GNAT User's Guide and           GNU FDL
+  Reference Manual (GCC)
+  learn.adacore.com courses       CC BY 4.0
+  LVGL's documentation            MIT
 Font Awesome Free (icons)         CC BY 4.0 (icons),        phone and computer
                                   SIL OFL 1.1 (font)
 GNAT run-time library (GCC)       GPL 3 with the GCC        phone and computer
@@ -168,6 +180,30 @@ TJpgDec (in LVGL)
 / * Redistributions of source code must retain the above copyright notice.
 /
 /-----------------------------------------------------------------------------/
+
+
+==============================================================================
+QR Code generator library (in LVGL; the pairing QR code)
+==============================================================================
+
+Copyright (c) Project Nayuki. (MIT License)
+https://www.nayuki.io/page/qr-code-generator-library
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+- The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+- The Software is provided "as is", without warranty of any kind, express or
+  implied, including but not limited to the warranties of merchantability,
+  fitness for a particular purpose and noninfringement. In no event shall the
+  authors or copyright holders be liable for any claim, damages or other
+  liability, whether in an action of contract, tort or otherwise, arising from,
+  out of or in connection with the Software or the use or other dealings in the
+  Software.
 
 
 ==============================================================================
@@ -3008,3 +3044,17 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Reference documentation
+
+The documentation in reference/ (in the app: unpacked from reference.zip)
+is the authors' own text, unchanged but for the Ada Reference Manual's
+character encoding (Latin-1 to UTF-8). Each part's licence travels with it:
+reference/ada-rm/rm-ttl.txt (the Ada Reference Manual's copyright notice:
+"This document may be copied, in whole or in part, in any form or by any
+means, as is or with alterations, provided that (1) alterations are clearly
+marked as alterations and (2) this copyright notice is included unmodified
+in any copy."), reference/spark/GFDL.rst and reference/gnat/GFDL.rst (the GNU
+Free Documentation License), reference/learn/LICENSE (Creative Commons
+Attribution 4.0; the courses are by AdaCore, learn.adacore.com),
+reference/lvgl/LICENCE.txt and reference/lvgl-ada/LICENSE (MIT).

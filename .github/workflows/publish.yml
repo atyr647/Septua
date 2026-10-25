@@ -1,6 +1,6 @@
 # Publishes a Septua release pushed to an upload/v<version> branch (by
 # tools/publish-release.sh in Septua's source): a GitHub Release with the
-# APK and the Linux download, then latest.json (what the app reads), then
+# APK and the Linux and Mac downloads, then latest.json (what the app reads), then
 # the branch is deleted so downloads don't stay in this repository's history.
 name: Publish a release
 
@@ -30,23 +30,28 @@ jobs:
           fi
           apk="Septua-$v.apk"
           linux="Septua-$v-linux-x86_64.tar.gz"
+          mac="Septua-$v-macos-arm64.tar.gz"
           [ -s "$apk" ] || { echo "no $apk"; exit 1; }
           [ -s "$linux" ] || { echo "no $linux"; exit 1; }
+          [ -s "$mac" ] || { echo "no $mac"; exit 1; }
           sum=$(sha256sum "$apk" | cut -d' ' -f1)
           linux_sum=$(sha256sum "$linux" | cut -d' ' -f1)
+          mac_sum=$(sha256sum "$mac" | cut -d' ' -f1)
           jq -r .notes release.json > notes.md
           summary=$(jq -r .summary release.json)   # (release.json goes with the branch)
           printf '\n\nSHA-256 of `%s`: `%s`\n' "$apk" "$sum" >> notes.md
           printf '\nSHA-256 of `%s`: `%s`\n' "$linux" "$linux_sum" >> notes.md
+          printf '\nSHA-256 of `%s`: `%s`\n' "$mac" "$mac_sum" >> notes.md
 
-          gh release create "v$v" "$apk" "$linux" --repo "$GITHUB_REPOSITORY" \
+          gh release create "v$v" "$apk" "$linux" "$mac" --repo "$GITHUB_REPOSITORY" \
             --title "Septua $v" --notes-file notes.md --target main --latest
 
           # The downloads must work before the app is told about them.
           base="https://github.com/$GITHUB_REPOSITORY/releases/download/v$v"
           url="$base/$apk"
           linux_url="$base/$linux"
-          for u in "$url" "$linux_url"; do
+          mac_url="$base/$mac"
+          for u in "$url" "$linux_url" "$mac_url"; do
             for i in 1 2 3 4 5 6; do
               curl -sfIL -o /dev/null "$u" && break
               [ "$i" = 6 ] && { echo "the download doesn't answer: $u"; exit 1; }
@@ -58,8 +63,8 @@ jobs:
           # feed only with a signature that checks); it must describe exactly
           # the files this release has.
           [ -s latest.json ] && [ -s latest.json.sig ] || { echo "the upload has no signed latest.json"; exit 1; }
-          jq -e --arg v "$v" --arg s "$sum" --arg l "$linux_sum" \
-            '.version == $v and .sha256 == $s and .linux_sha256 == $l' latest.json >/dev/null \
+          jq -e --arg v "$v" --arg s "$sum" --arg l "$linux_sum" --arg m "$mac_sum" \
+            '.version == $v and .sha256 == $s and .linux_sha256 == $l and .macos_sha256 == $m' latest.json >/dev/null \
             || { echo "latest.json doesn't match the files"; exit 1; }
           cp latest.json latest.json.sig "$RUNNER_TEMP/"
           git fetch -q origin main
