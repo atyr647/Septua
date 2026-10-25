@@ -32,26 +32,29 @@ jobs:
           linux="Septua-$v-linux-x86_64.tar.gz"
           mac="Septua-$v-macos-arm64.tar.gz"
           [ -s "$apk" ] || { echo "no $apk"; exit 1; }
-          [ -s "$linux" ] || { echo "no $linux"; exit 1; }
-          [ -s "$mac" ] || { echo "no $mac"; exit 1; }
+          # (The Linux and Mac downloads are optional: a release without one
+          # leaves it out of the feed, and that app offers the releases page.)
           sum=$(sha256sum "$apk" | cut -d' ' -f1)
-          linux_sum=$(sha256sum "$linux" | cut -d' ' -f1)
-          mac_sum=$(sha256sum "$mac" | cut -d' ' -f1)
+          files="$apk"
+          linux_sum=""; mac_sum=""
+          if [ -s "$linux" ]; then linux_sum=$(sha256sum "$linux" | cut -d' ' -f1); files="$files $linux"; fi
+          if [ -s "$mac" ]; then mac_sum=$(sha256sum "$mac" | cut -d' ' -f1); files="$files $mac"; fi
           jq -r .notes release.json > notes.md
           summary=$(jq -r .summary release.json)   # (release.json goes with the branch)
           printf '\n\nSHA-256 of `%s`: `%s`\n' "$apk" "$sum" >> notes.md
-          printf '\nSHA-256 of `%s`: `%s`\n' "$linux" "$linux_sum" >> notes.md
-          printf '\nSHA-256 of `%s`: `%s`\n' "$mac" "$mac_sum" >> notes.md
+          [ -z "$linux_sum" ] || printf '\nSHA-256 of `%s`: `%s`\n' "$linux" "$linux_sum" >> notes.md
+          [ -z "$mac_sum" ] || printf '\nSHA-256 of `%s`: `%s`\n' "$mac" "$mac_sum" >> notes.md
 
-          gh release create "v$v" "$apk" "$linux" "$mac" --repo "$GITHUB_REPOSITORY" \
+          gh release create "v$v" $files --repo "$GITHUB_REPOSITORY" \
             --title "Septua $v" --notes-file notes.md --target main --latest
 
           # The downloads must work before the app is told about them.
           base="https://github.com/$GITHUB_REPOSITORY/releases/download/v$v"
           url="$base/$apk"
-          linux_url="$base/$linux"
-          mac_url="$base/$mac"
-          for u in "$url" "$linux_url" "$mac_url"; do
+          urls="$url"
+          [ -z "$linux_sum" ] || urls="$urls $base/$linux"
+          [ -z "$mac_sum" ] || urls="$urls $base/$mac"
+          for u in $urls; do
             for i in 1 2 3 4 5 6; do
               curl -sfIL -o /dev/null "$u" && break
               [ "$i" = 6 ] && { echo "the download doesn't answer: $u"; exit 1; }
@@ -64,7 +67,7 @@ jobs:
           # the files this release has.
           [ -s latest.json ] && [ -s latest.json.sig ] || { echo "the upload has no signed latest.json"; exit 1; }
           jq -e --arg v "$v" --arg s "$sum" --arg l "$linux_sum" --arg m "$mac_sum" \
-            '.version == $v and .sha256 == $s and .linux_sha256 == $l and .macos_sha256 == $m' latest.json >/dev/null \
+            '.version == $v and .sha256 == $s and (.linux_sha256 // "") == $l and (.macos_sha256 // "") == $m' latest.json >/dev/null \
             || { echo "latest.json doesn't match the files"; exit 1; }
           cp latest.json latest.json.sig "$RUNNER_TEMP/"
           git fetch -q origin main
